@@ -13,22 +13,19 @@ The primary objective is to develop a predictive model that can accurately ident
 waterpump-predictor-app/
 │
 ├── Dockerfile
-├── .dockerignore
 ├── README.md
 ├── requirements.txt
 ├── app.py
 ├── data/
 │   ├── train_data.csv
 │   ├── target_data.csv
-│   └── X_data.csv
-├── tanzania.geojson
+│   └── test_data.csv
 ├── templates/
 │   └── index.html
 ├── static/
 │   └── js/
 │       └── map.js
-├── deployment.yaml
-└── service.yaml
+└── tanzania.geojson
 ```
 
 ## Setup and Installation
@@ -67,39 +64,6 @@ Open your web browser and navigate to `http://localhost:5000`.
 
 - Click on a location on the map to see the prediction of the functionality of a water pump at that location.
 
-## Deployment to Kubernetes
-
-1. **Push the Docker image to a container registry:**
-
-```bash
-docker tag waterpump-predictor yourdockerhubusername/waterpump-predictor:latest
-docker push yourdockerhubusername/waterpump-predictor:latest
-```
-
-2. **Apply the Kubernetes deployment and service:**
-
-```bash
-kubectl apply -f deployment.yaml
-kubectl apply -f service.yaml
-```
-
-3. **Check the status of the pods and services:**
-
-```bash
-kubectl get pods
-kubectl get services
-```
-
-4. **Access the application:**
-
-If using Minikube, you can access the service with:
-
-```bash
-minikube service waterpump-predictor-service
-```
-
-Otherwise, access the application using the external IP provided by your cloud provider.
-
 ## Data
 
 The `data` directory contains the following files:
@@ -112,21 +76,15 @@ The `data` directory contains the following files:
 
 - `app.py`: Main Flask application file.
 - `Dockerfile`: Docker configuration file.
-- `.dockerignore`: Files and directories to ignore in the Docker build process.
 - `requirements.txt`: Python dependencies.
 - `tanzania.geojson`: GeoJSON file containing the geographical data for Tanzania.
 - `templates/index.html`: HTML template for the Flask application.
 - `static/js/map.js`: JavaScript file for handling the map interactions.
-- `deployment.yaml`: Kubernetes deployment configuration.
-- `service.yaml`: Kubernetes service configuration.
 
 ## Contributing
 
 Feel free to fork this project and submit pull requests. Any contributions, suggestions, or improvements are welcome.
 
-## License
-
-This project is licensed under the MIT License.
 
 ## Acknowledgements
 
