@@ -1,0 +1,8 @@
+jupyter
+scikit-learn
+numpy
+pandas
+seaborn
+xgboost
+folium
+Flask
